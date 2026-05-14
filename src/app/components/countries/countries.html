@@ -1,1 +1,33 @@
-<p>countries works!</p>
+<main class="container">
+  @if (countriesService.apiError()) {
+  <div class="alert alert-warning">
+    <h5>There was a problem</h5>
+    <p>Could not connect to the API. Make sure it is up and running.</p>
+  </div>
+  } @else {
+  <table>
+    <tr>
+      <th>Flag</th>
+      <th>Name</th>
+      <th>Capital</th>
+      <th>Independent</th>
+    </tr>
+    @for (countryData of countriesService.countries(); track $index) {
+    <tr>
+      <td> {{countryData.flag }} </td>
+      <td> {{countryData.name.official }}</td>
+      <td> {{countryData.capital[0] }}</td>
+      <td>
+        @if (countryData.independent) {
+          Yes
+        } @else {
+          No
+        }
+      </td>
+    </tr>
+    }
+
+
+  </table>
+  }
+</main>
