@@ -1,12 +1,12 @@
 export interface CountryName {
-  common: string,
-  official: string
+  common: string;
+  official: string;
 }
 export interface Countries {
-    flag: string
+    flag: string;
     name: CountryName;
     independent: boolean;
-    capital: string
+    capital: string;
     // response: string;
     // error: string;
 }
