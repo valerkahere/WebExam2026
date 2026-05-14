@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ExamApi } from '../../services/exam-api/exam-api';
 
 @Component({
   selector: 'app-countries',
@@ -6,4 +7,9 @@ import { Component } from '@angular/core';
   templateUrl: './countries.html',
   styleUrl: './countries.css',
 })
-export class Countries {}
+export class Countries {
+  countriesService = inject(ExamApi);
+  constructor() {
+    this.countriesService.getCountries();
+  }
+}
